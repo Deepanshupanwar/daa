@@ -1,26 +1,14 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <bits/stdc++.h>
 using namespace std;
 vector<vector<int> > graph;
-int con[1][6];
-void dfs(int start,int start1,vector<bool>& visited)
+void dfs(int start,vector<bool>& visited)
 {
-    //cout<<start1;
     visited[start]=true;
-    for(int i=0;i<graph[start1].size();i++)
+    for(int i=0;i<graph[start].size();i++)
     {
-        if(graph[start1][i]==1&&visited[i]==false)
+        if(graph[start][i]==1&&visited[i]==false)
         {
-            if(con[start][start1]==1||start==start1)
-                con[start][i]=1;
-            dfs(start,i,visited);
+            dfs(i,visited);
         }
     }
 }
@@ -42,8 +30,11 @@ int main()
     graph[y][x] = 1;
     }
     vector<bool> visited(n,false) ;
-    dfs(0,4,visited);
-    if(con[0][4]==1)
+    cout<<"enter vertices to find path exists or not"<<endl;
+    int x,y;
+    cin>>x,y;
+    dfs(x,visited);
+   if (visited[y]==true)
      cout<<"yes";
     else
      cout<<"no";
