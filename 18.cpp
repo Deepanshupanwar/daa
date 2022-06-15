@@ -28,11 +28,6 @@ int main()
    int m;
    cout<<"enter number of edges"<<endl;
    cin>>m;
-   int set[n];
-    for(int i=0;i<n;i++)
-    {
-        set[i]=-1;
-    }
    graph = vector<vector<int> >(n, vector<int>(n, 0));
    cout<<"enter connection edges"<<endl;
     for(int i=0;i<m;i++)
